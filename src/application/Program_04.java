@@ -1,5 +1,8 @@
 package application;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /** FIXME OLHA TANTO QUE SOU VELHO EM JAVA -> UNIVERSIDADE XTI */ 
 /** FIXME O CARA POSTOU ESSAS VÍDEO AULAS EM @since 2011 */
 /** @author LUCAS ROCHA -> VOLTANDO A ATIVA */
@@ -98,5 +101,36 @@ public class Program_04 {
 		
 		System.out.println("VALIDACAO EMAIL " + "lucasrocha@outlook.com.br".matches("\\w+@\\w+\\.\\w+\\.\\w{2,3}"));
 		
+		String doce ="DOCE DOCE DOCE PARECE QUE TEM MEL, ABACAXI DE MARATAIZES";
+		Matcher matcher = Pattern.compile("(?i)DOCE").matcher(doce);
+		
+		System.out.println(matcher.find()); /**FIXME RETORNAR UM BOOLEAN*/
+		System.out.println(matcher.group()); /**FIXME RETORNAR A PALAVRA*/
+		
+		while(matcher.find()) {
+			System.out.println(matcher.group());
+		}
+		
+		String r = doce.replaceAll("(?i)DOCE", "docinho");
+		System.out.println(r);
+		
+        String rato = "O rato roeu a roupa do rei de roma";
+        String resultado = rato.replaceAll("r[aeio]","XX");
+        System.out.println(resultado);
+        
+        String resultado02 = "Tabular este texto".replaceAll("\\s", "\t");
+        System.out.println(resultado02);
+        
+        String url = "www.xti.com.br/clientes-2011.html";
+        /**http://www.xti.com.br/2021/clientes/objetivos*/
+        String re = "www.xti.com.br/\\w{2,}-\\d{4}.html";
+        System.out.println(url.matches(re));
+        
+        String resultado03 = "(www.xti.com.br)/(\\w{2,})-(\\d{4}).html";
+        
+        String urlS = url.replaceAll(resultado03,"http://$1/$3/$2.jsp");
+        System.out.println(urlS);
+        System.out.println(url);
+        
 	}
 }
