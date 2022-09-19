@@ -64,6 +64,39 @@ public class Program_04 {
 		System.out.println("VALIDANDO CPF NOVAMENTE " + cpFulano.matches("\\d{3}.\\d{3}.\\d{3}-\\d{2}"));
 		System.out.println("AGORA VALIDANDO CEP " + "38770-000".matches("\\d{5}-\\d{3}"));
 		
+		/**FIXME METACARACTER DE FRONTEIRA*/
+		/** ^ INCIA*/
+		/** $ FINALIZA*/
+		/** | OU*/
+		
+		System.out.println("COMECA COM E TERMINA COM 1 OU MAIS CARACTER " + "Pier21".matches("^Pier.*"));
+		System.out.println("ELE COMECA COM 1 OU + QUALQUER CARACTER E TERMINA COM " + "Pier21".matches(".*$21"));
+		System.out.println("SEM TEM TAL CARACTER NO MEIO DO TEXTO " + "TEM JAVA AQUI".matches(".*JAVA.*"));
+		System.out.println("SEM TEM TAL CARACTER NO MEIO DO TEXTO " + "TEM JAVA AQUI".matches("^TEM.*AQUI$"));
+		System.out.println("SE TEM DETERMINADO CARACTER " + "SIM".matches("SIM|NAO"));
+		
+		/**FIXME AGRUPADORES*/
+		/**[...] AGRUPAMENTO*/
+		/**[a-z] ALCANCE*/
+		/**[a-e][i-u] UNIÃO*/
+		/**[a-z&&][aeiou]] INTERSEÇÃO*/
+		/**[^abc] Execeção*/
+		/**[a-z&&][^m-p]] SUBTRACAO*/
+		/**\x Fuga Literal*/
+		
+		System.out.println(" " + "x".matches("[a-z]"));
+		System.out.println(" " + "A".matches("[a-z]"));
+		System.out.println(" " + "2".matches("[a-z]"));
+		System.out.println(" " + "2".matches("[0-9]"));
+		System.out.println(" " + "true".matches("[tT]rue"));
+		System.out.println(" " + "True".matches("[tT]rue"));
+		System.out.println(" " + "True".matches("[tT]rue|[yY]es"));
+		System.out.println(" " + "yes".matches("[tT]rue|[yY]es"));
+		System.out.println(" " + "Lucas".matches("[A-Z][a-zA-Z]"));
+		System.out.println(" " + "olho".matches("[^abc]lho"));
+		System.out.println(" " + "crau".matches("cr[ae]u"));
+		
+		System.out.println("VALIDACAO EMAIL " + "lucasrocha@outlook.com.br".matches("\\w+@\\w+\\.\\w+\\.\\w{2,3}"));
 		
 	}
 }
